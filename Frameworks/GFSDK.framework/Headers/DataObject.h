@@ -13,13 +13,21 @@ typedef enum {
     TYPE_LOGIN,
     TYPE_INDEX,
     TYPE_ACTIVATE,
-    TYPE_DRAW
+    TYPE_DRAW,
+    TYPE_REAL //实名认证
 } BUSSINESS_TYPE;
+
 typedef enum
 {
     DEV,
     PROD
-}Host_TYPE;
+}Host_TYPE;  //测试服or正式服
+
+typedef enum
+{
+    Portrait,
+    Landscape
+}Orientation;  //横竖屏
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -35,6 +43,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString* VERSION;
 @property (nonatomic, copy) NSString* WEB_URL;
 @property (nonatomic, copy) NSString* HTTPS_BASE_URL;
+@property (nonatomic,readwrite)Orientation deviceOrientation ;
+
 -(NSString*) get_web_url_page:(NSString*) page;
 -(NSString*) get_http_base_page:(NSString*) page;
 -(void)setHost:(Host_TYPE)serverType;

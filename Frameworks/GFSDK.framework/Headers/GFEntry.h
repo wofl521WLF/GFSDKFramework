@@ -22,6 +22,8 @@ typedef void(^getServerListCallback)(NSDictionary* serversInfo);
 
 @interface GFEntry : NSObject
 
+
+
 @property(weak,nonatomic) id<GFEntryDelegate> delegate;
 - (void)addMainButton;
 - (void)setData:(DataObject*)initData ;
@@ -29,5 +31,16 @@ typedef void(^getServerListCallback)(NSDictionary* serversInfo);
 - (void)cleanLoginData;
 - (void)getGameServerListWithCallback:(getServerListCallback)callback;
 - (void)login;
+- (void)updateUserGameInfo:(NSString*)serverId serverName:(NSString*)serverName alias:(NSString*)alias level:(NSString*)level;
+- (void)getRealStatus;
+- (NSString*)getSDKVersion;
+-(void)checkAppData;
+-(void)setOritention:(Orientation) ori;
+-(Orientation)getOritention;
+
++(GFEntry*)getInstance;
 + (DataObject*)getAppData;
++ (GFEntry*)initSdk:(NSString*)appId appKey:(NSString*)appKey serverType:(Host_TYPE)serverType ;
+
+
 @end
